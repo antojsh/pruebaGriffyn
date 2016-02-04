@@ -1,0 +1,8 @@
+<%= render "menu"%>
+<section id="article">
+	<article>
+		<h1><%= @article.title%></h1>
+		<%= @article.body.html_safe%>
+		<small>Escrito por: <%= @article.user.email%></small>
+	</article>
+</section>

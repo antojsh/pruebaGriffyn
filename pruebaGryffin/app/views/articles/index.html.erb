@@ -1,0 +1,21 @@
+<%= render "menu"%>
+<section id="articles">
+	<% @articles.each do |article|%>
+		<article>
+			<a href="/articles/<%= article.id%>">
+				<div class="titleArticle">
+					<h1><%= article.title%></h1>
+				</div>
+				<div class="contentArticle">
+					
+					<a href="http://www.google.com.co"><%= article.description%></a> 
+					
+				</div>
+			</a>
+				<small>Por: <%= article.user.email%></small>
+			
+		</article>
+	<% end %>
+</section>
+	
+

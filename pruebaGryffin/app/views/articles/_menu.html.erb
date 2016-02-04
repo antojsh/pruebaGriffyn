@@ -1,0 +1,23 @@
+<header id='headerHome'>
+	<div class="contentHeader">
+		<div class="logo">
+			<a href="/articles"><img src="http://www.gryffin.com/wp-content/uploads/2014/08/GryffinBlack.png" alt=""></a>
+		</div>
+		<nav>
+			<ul>
+				<% if user_signed_in? %>
+					<li><a href="/articles">Home</a></li>
+					<li><a href="#">Profile</a></li>
+					<li><a href="/articles/new">New</a></li>
+					<li><%= link_to "Exit", destroy_user_session_path,method: :delete%></li>
+				<%else%>
+					<li><%= link_to "Login", new_user_session_path%></li>
+					<li><%= link_to "Register", new_user_registration_path%></li>
+
+				<%end%>
+				
+				
+			</ul>
+		</nav>
+	</div>
+</header>

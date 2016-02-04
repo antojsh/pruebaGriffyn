@@ -1,0 +1,28 @@
+<%= render "menu"%>
+<section id='newArticle'>
+	<h1>Nuevo Articulo</h1>
+	
+	<%= form_for(@article) do |f| %>
+		<% @article.errors.full_messages.each do |message|%>
+			<div class="error">
+				<%= message %>
+			</div>
+			
+		<%end%>
+		<div class="row">
+			<%= f.text_field :title, placeholder:"Titulo "%>
+		</div>
+			<div class="row">
+			<%= f.text_field :description, placeholder:"Descripcion "%>
+		</div>
+		<div class="row">
+			<%= f.text_area :body, placeholder:"Articulo", class:"summernote" , as: :summernote%>
+		</div>
+		<div class="row">
+			<%= f.submit "Guardar", class: "buttonSubmit"%>
+		</div>
+	<%end%>
+	<script>$('.summernote').summernote();</script>
+</section>
+
+
