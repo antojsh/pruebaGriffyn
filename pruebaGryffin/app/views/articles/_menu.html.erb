@@ -10,6 +10,14 @@
 					<li><a href="#">Profile</a></li>
 					<li><a href="/articles/new">New</a></li>
 					<li><%= link_to "Exit", destroy_user_session_path,method: :delete%></li>
+					<li><a href="#">Categories</a>
+						<ul>
+							<li><a href="#">engenier</a></li>
+							<li><a href="#">Docent</a></li>
+							<li><a href="#">engenier</a></li>
+							<li><a href="#">Docent</a></li>
+						</ul>
+					</li>
 				<%else%>
 					<li><%= link_to "Login", new_user_session_path%></li>
 					<li><%= link_to "Register", new_user_registration_path%></li>

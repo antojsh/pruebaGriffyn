@@ -57,9 +57,9 @@ section{
 header#headerHome{
 	width:100%;
 	height:70px;
-	background:#F24C27;
+	background:saturate(#024959,20%);
 	position: relative;
-	overflow: hidden;
+	
 	.contentHeader{
 		width: 80%;
 		height: 100%;
@@ -72,27 +72,52 @@ header#headerHome{
 		align-items: center;
 		nav{
 			width: auto;
-			height: auto;
-			ul{
+			height: 100%;
+			display: flex;
+			justify-content: center;
+			align-items:center;
+			&>ul{
 				display: flex;
 				list-style: none;
 				li{
 					margin: 0 2em;
+					position:relative;
+					height: 100%;
+
+					
 					a{
 						text-decoration: none;
 						color: white;
-						font-size: 1.3rem;
+						font-size: 1.8rem;
 					}
+					 ul{
+					 	position:absolute;
+					 	top:100%;
+					 	left: 0;
+					 	background:#F24C27;
+					 	list-style: none;
+					 	margin:0;
+					 	padding:0;
+					 	li{
+					 		width: 100%;
+					 		margin-bottom: 1em;
+					 		border-top:1px solid #004a5b;
+					 		&:first-child{
+					 			border:none;
+					 			margin-top: 1em;
+					 		}
+					 	}
+					 }
 				}
 			}	
 		}
 	}
 }
-section#articles{
+section#articles, section#category{
 	
-	display:flex;
-	justify-content:space-between;
-	flex-wrap:wrap;
+	// display:flex;
+	// justify-content:space-between;
+	// flex-wrap:wrap;
 	article{
 		width: 300px;
 		height: 200px;
@@ -100,19 +125,27 @@ section#articles{
 		box-shadow: 0 8px 6px -6px  #aaa;
 		margin-bottom: 2em;
 		position:relative;
+		display: inline-block;
+		margin-right: 4.2em;
+		transition: all .3s;
 		.contentArticle{
 			position:absolute;
 			width: 100%;
-			height: calc(100% - 70px);
+			height: calc(100% - 50px);
 			left: 0;
 			top: 50px;
-			padding:10px;
+			padding:15px;
 	
-			overflow:auto;
+			overflow:hidden;
+
 			p{
 				color: #5F5448;
 				letter-spacing: 2px;
-
+				display: block;
+				overflow:hidden;
+				width: 100%;
+				height: 100%;
+				max-width: 100%;
 			}
 			
 		}
@@ -122,20 +155,20 @@ section#articles{
 			height: 50px;
 			left: 0;
 			top:  0;
-			background:#037E8C;
+			background:#F24C27;
 			padding:10px;
 			h1{
 				color: white;
 				letter-spacing: 2px;
 				margin:0;
 				font-size: 1.5rem;
+				
 			}
 		}
-		&>small{
-			position:absolute;
-			bottom:2px;
-			left: 2px;
+		&:hover{
+			transform: scale(1.2);
 		}
+		
 	}
 }
 
@@ -152,6 +185,9 @@ section#article{
 			letter-spacing: 2px;
 			font-size: 1.2rem;
 			margin-top: 2.5em;
+		}
+		a{
+			color: #F24C27;
 		}
 	}
 }

@@ -8,9 +8,11 @@ class ArticlesController < ApplicationController
 	end
 	def new
 		@article = Article.new
+		@categories = Category.all
 	end
 	def create
 		@article = current_user.articles.new(title: params[:article][:title],description:params[:article][:description],body:params[:article][:body])
+		@article.categories = params[:categories]
 		if @article.save
 			redirect_to @article
 		else

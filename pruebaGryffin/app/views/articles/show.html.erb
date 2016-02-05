@@ -3,6 +3,6 @@
 	<article>
 		<h1><%= @article.title%></h1>
 		<%= @article.body.html_safe%>
-		<small>Escrito por: <%= @article.user.email%></small>
+		<a href='#'>Escrito por: <%= @article.user.email%></a>
 	</article>
 </section>

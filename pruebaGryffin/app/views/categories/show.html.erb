@@ -1,0 +1,35 @@
+<%= render "articles/menu"%>
+<p id="notice"><%= notice %></p>
+
+
+<section id='category'>
+	<p style="color:<%=@category.color%>">
+	  <strong>Category:</strong>
+	  <%= @category.name %>
+	</p>
+	<% @category.articles.each do |article|%>
+		<article>
+			<a href="/articles/<%= article.id%>">
+				<div class="titleArticle">
+					<h1><%= article.title%></h1>
+				</div>
+				<div class="contentArticle">
+					<p>
+						<%= article.description%>
+					</p>
+				</div>
+			</a>
+				<a href=""><small>Por: <%= article.user.email%></small></a>
+			
+		</article>
+	<%end%>
+	<%= link_to 'Edit', edit_category_path(@category) %> |
+	<%= link_to 'Back', categories_path %>
+</section>
+
+<!-- <p>
+  <strong>Color:</strong>
+  <%= @category.color %>
+</p> -->
+
+

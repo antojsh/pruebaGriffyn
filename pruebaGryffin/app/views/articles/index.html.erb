@@ -7,12 +7,12 @@
 					<h1><%= article.title%></h1>
 				</div>
 				<div class="contentArticle">
-					
-					<a href="http://www.google.com.co"><%= article.description%></a> 
-					
+					<p>
+						<%= article.description%>
+					</p>
 				</div>
 			</a>
-				<small>Por: <%= article.user.email%></small>
+				<a href=""><small>Por: <%= article.user.email%></small></a>
 			
 		</article>
 	<% end %>
