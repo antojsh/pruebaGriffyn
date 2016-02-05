@@ -83,7 +83,10 @@ header#headerHome{
 					margin: 0 2em;
 					position:relative;
 					height: 100%;
-
+					&:hover ul{
+						height: auto;
+						transition: all .4s;
+					}
 					
 					a{
 						text-decoration: none;
@@ -92,16 +95,25 @@ header#headerHome{
 					}
 					 ul{
 					 	position:absolute;
+					 	height: 0;
+					 	z-index: 20;
 					 	top:100%;
 					 	left: 0;
 					 	background:#F24C27;
 					 	list-style: none;
 					 	margin:0;
 					 	padding:0;
+					 	overflow: hidden;
+					 	box-shadow:1px 1px 5px black;
+					 	transition: all .4s;
+					 	padding-left:1em;
+					 	padding-right:1em;
 					 	li{
 					 		width: 100%;
 					 		margin-bottom: 1em;
-					 		border-top:1px solid #004a5b;
+					 		padding-left:2px !important;
+					 		margin-left: 0 !important;
+					 		border-top:1px solid #dadada;
 					 		&:first-child{
 					 			border:none;
 					 			margin-top: 1em;
