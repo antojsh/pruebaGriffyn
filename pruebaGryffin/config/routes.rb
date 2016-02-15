@@ -1,19 +1,12 @@
 Rails.application.routes.draw do
+  resources :roles
+  resources :permissions
+  resources :permissions
+  resources :permissions
+  resources :permissions
   resources :categories
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
-   resources :articles
-      # get     "/articles"
-      # post    "/articles"
-      # delete  "/articles"
-      # get     "/articles/:id"
-      # get     "/articles/new"
-      # get     "/articles/:id/edit"
-      # patch   "/articles/:"
-      # put     "/articles/:id"
+  resources :articles
   root to: "articles#index"
 
   # Example of regular route:

@@ -10,10 +10,18 @@
 					<li><a href="#">Profile</a></li>
 					<li><a href="/articles/new">New</a></li>
 					<li><%= link_to "Exit", destroy_user_session_path,method: :delete%></li>
-					<li><a href="#">Categories</a>
+					<li><a href="/categories">Categories</a>
 						<ul>
 							 <% @categories.each do |category| %>
 								<li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
+							
+							 <%end%>
+						</ul>
+					</li>
+					<li><a href="/roles">Roles</a>
+						<ul>
+							 <% @roles.each do |rol| %>
+								<li><a href="/roles/<%= rol.id %>"><%= rol.nombre %></a></li>
 							
 							 <%end%>
 						</ul>

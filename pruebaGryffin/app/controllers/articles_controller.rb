@@ -1,5 +1,4 @@
 class ArticlesController < ApplicationController
-	
 	def index
 		@articles= Article.all
 	end
@@ -9,6 +8,7 @@ class ArticlesController < ApplicationController
 	def new
 		@article = Article.new
 		@categories = Category.all
+		@permissions= Permission.all
 	end
 	def create
 		@article = current_user.articles.new(title: params[:article][:title],description:params[:article][:description],body:params[:article][:body])
@@ -19,5 +19,6 @@ class ArticlesController < ApplicationController
 			render :new
 		end
 	end
+
 
 end

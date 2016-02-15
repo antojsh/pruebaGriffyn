@@ -10,7 +10,10 @@
           <%= f.label :email ,"Correo"%><br />
           <%= f.email_field :email, autofocus: true %>
         </div>
-
+         <div class="field">
+          <%= f.label :name ,"Nombre"%><br />
+          <%= f.text_field :name, autofocus: true %>
+        </div>
         <div class="field">
           <%= f.label :password , "Contraseña"%>
           <% if @minimum_password_length %>
@@ -23,7 +26,7 @@
           <%= f.label :password_confirmation , "Validar Contraseña"%><br />
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
-
+        
         <div class="actions">
           <%= f.submit "Registrarse" ,class:'buttonSubmit'%>
         </div>
