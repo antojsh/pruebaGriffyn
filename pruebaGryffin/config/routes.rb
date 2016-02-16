@@ -1,14 +1,11 @@
 Rails.application.routes.draw do
   resources :roles
-  resources :permissions
-  resources :permissions
-  resources :permissions
-  resources :permissions
+ 
   resources :categories
   devise_for :users
   resources :articles
   root to: "articles#index"
-
+  get 'setrole'=>'roles#setrole'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

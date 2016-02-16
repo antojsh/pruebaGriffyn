@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215170434) do
+ActiveRecord::Schema.define(version: 20160216224041) do
 
   create_table "articles", force: :cascade do |t|
     t.text     "title"
     t.text     "body"
+    t.string   "role"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.text     "description"
@@ -41,22 +42,6 @@ ActiveRecord::Schema.define(version: 20160215170434) do
   add_index "has_categories", ["article_id"], name: "index_has_categories_on_article_id"
   add_index "has_categories", ["category_id"], name: "index_has_categories_on_category_id"
 
-  create_table "has_roles", force: :cascade do |t|
-    t.integer  "role_id"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "has_roles", ["role_id"], name: "index_has_roles_on_role_id"
-  add_index "has_roles", ["user_id"], name: "index_has_roles_on_user_id"
-
-  create_table "permissions", force: :cascade do |t|
-    t.text     "permission"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "roles", force: :cascade do |t|
     t.string   "nombre"
     t.datetime "created_at", null: false
@@ -78,9 +63,11 @@ ActiveRecord::Schema.define(version: 20160215170434) do
     t.string   "permission",             default: "Public"
     t.datetime "created_at",                                null: false
     t.datetime "updated_at",                                null: false
+    t.integer  "role_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["role_id"], name: "index_users_on_role_id"
 
 end
