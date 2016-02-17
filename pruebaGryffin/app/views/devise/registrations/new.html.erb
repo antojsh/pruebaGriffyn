@@ -27,7 +27,7 @@
           <%= f.password_field :password_confirmation, autocomplete: "off" %>
         </div>
         <div class="field">
-          <%= f.label :role_id , "Validar Contraseña"%><br />
+          <%= f.label :role_id , "Role"%><br />
           <%=f.collection_select :role_id, @roles, :id, :nombre%>
         </div>
         

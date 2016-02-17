@@ -1,6 +1,6 @@
 class Article < ActiveRecord::Base
 	belongs_to :user
-	validates :title , presence:true,length:{minimum:10}
+	has_many :role
 	validates :body, presence:true,length:{minimum:20}
 	
 	after_create:save_categories

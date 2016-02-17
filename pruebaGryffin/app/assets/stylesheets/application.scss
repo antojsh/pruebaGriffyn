@@ -133,19 +133,21 @@ section#articles, section#category{
 	// justify-content:space-between;
 	// flex-wrap:wrap;
 	article{
-		width: 320px;
-		height: 200px;
+
+		width: 70%;
+		height: 500px;
 		border:1px solid #dadada;
-		box-shadow: 0 8px 6px -6px  #aaa;
+		box-shadow: 4px 4px 4px  #aaa;
 		margin-bottom: 2em;
 		position:relative;
 		display: inline-block;
-		margin-right: 4.2em;
+		overflow: hidden;
 		transition: all .3s;
+		border:1px solid red;
 		.contentArticle{
 			position:absolute;
 			width: 100%;
-			height: calc(100% - 50px);
+			height: auto;
 			left: 0;
 			top: 50px;
 			padding:15px;
@@ -153,7 +155,6 @@ section#articles, section#category{
 			overflow:hidden;
 
 			p{
-				color: #5F5448;
 				letter-spacing: 2px;
 				display: block;
 				overflow:hidden;
@@ -180,9 +181,19 @@ section#articles, section#category{
 			}
 		}
 		&:hover{
-			transform: scale(1.2);
+			
 		}
 		
+	}
+	article#categories{
+		position:absolute;
+		border:1px solid #dadada;
+		right: 0;
+		width: 30%;
+		padding:5px 2em;
+		ul{
+			list-style:none;
+		}
 	}
 }
 

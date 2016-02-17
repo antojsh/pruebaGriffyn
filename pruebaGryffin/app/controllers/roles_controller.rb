@@ -1,6 +1,6 @@
 class RolesController < ApplicationController
   before_action :set_role, only: [:show, :edit, :update, :destroy]
-
+ 
   # GET /roles
   # GET /roles.json
   def index
@@ -73,4 +73,5 @@ class RolesController < ApplicationController
     def role_params
       params.require(:role).permit(:nombre)
     end
+    
 end

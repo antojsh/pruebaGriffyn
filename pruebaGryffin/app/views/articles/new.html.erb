@@ -1,20 +1,19 @@
 <%= render "menu"%>
 <section id='newArticle'>
-	<h1>Nuevo Articulo</h1>
-	
+	<h1>Nuevo Mensaje</h1>
+	 
 	<%= form_for(@article) do |f| %>
+	<div class="field">
+          <%= f.label :role_id , "Role"%><br />
+          <%=f.collection_select :role_id, @rolesnew, :id, :nombre%>
+        </div>
 		<% @article.errors.full_messages.each do |message|%>
 			<div class="error">
 				<%= message %>
 			</div>
 			
 		<%end%>
-		<div class="row">
-			<%= f.text_field :title, placeholder:"Titulo "%>
-		</div>
-			<div class="row">
-			<%= f.text_field :description, placeholder:"Descripcion "%>
-		</div>
+		
 		<div class="row">
 			<%= f.text_area :body, placeholder:"Articulo", class:"summernote" , as: :summernote%>
 		</div>
@@ -27,7 +26,7 @@
 			<%end%>
 		</div>
 		
-
+		
 		<div class="row">
 			<%= f.submit "Guardar", class: "buttonSubmit"%>
 		</div>

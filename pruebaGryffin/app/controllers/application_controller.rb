@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   before_action :set_categories,:set_permission,:set_roles
+  before_action :authenticate_user!
   protect_from_forgery with: :exception
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
@@ -14,7 +15,8 @@ class ApplicationController < ActionController::Base
   	 @permission = Permission.all
   end
   def set_roles
-    @roles = Role.all
+    @rolesnew = Role.all
+    @roles = Role.where.not(nombre: 'Public').where.not(nombre: 'Private')
   end
 protected
 

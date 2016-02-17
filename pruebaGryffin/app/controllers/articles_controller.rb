@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
+
 	def index
-		@articles= Article.all
+		@articles= Article.where('role_id',current_user.role_id)
 	end
 	def show
 		@article = Article.find(params[:id])
@@ -11,7 +12,7 @@ class ArticlesController < ApplicationController
 		@permissions= Permission.all
 	end
 	def create
-		@article = current_user.articles.new(title: params[:article][:title],description:params[:article][:description],body:params[:article][:body])
+		@article = current_user.articles.new(body:params[:article][:body],role_id:params[:article][:role_id])
 		@article.categories = params[:categories]
 		if @article.save
 			redirect_to @article
@@ -19,6 +20,7 @@ class ArticlesController < ApplicationController
 			render :new
 		end
 	end
+	
 
 
 end

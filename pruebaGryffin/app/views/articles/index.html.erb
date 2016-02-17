@@ -1,19 +1,30 @@
 <%= render "menu"%>
 <section id="articles">
+	<article id="categories">
+		<a href="/categories"><h1>Categories</h1></a>
+
+		<ul>
+			 <% @categories.each do |category| %>
+		<li><%= link_to category.name, category%></li>
+							 
+			
+			 <%end%>
+		</ul>
+	</article>
 	<% @articles.each do |article|%>
 		<article>
-			<a href="/articles/<%= article.id%>">
+			
 				<div class="titleArticle">
-					<h1><%= article.title%></h1>
+					<h1><%= article.user.name %></h1>
+					<h1><%= article.role.nombre%></h1>
 				</div>
 				<div class="contentArticle">
 					<p>
-						<%= article.description%>
+						<%= article.body.html_safe%>
 					</p>
 				</div>
-			</a>
-				<a href=""><small>Por: <%= article.user.email%></small></a>
 			
+				
 		</article>
 	<% end %>
 </section>
