@@ -4,7 +4,7 @@ class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
   def index
-    @roles = Role.all
+    @roles = Role.where('id != 1 and id !=2')
   end
 
   # GET /roles/1
@@ -20,7 +20,9 @@ class RolesController < ApplicationController
   # GET /roles/1/edit
   def edit
   end
-
+  def assign
+    
+  end
   # POST /roles
   # POST /roles.json
   def create

@@ -1,22 +1,13 @@
-<%= render "menu"%>
+ <%= render "menu"%>
 <section id="articles">
-	<article id="categories">
-		<a href="/categories"><h1>Categories</h1></a>
-
-		<ul>
-			 <% @categories.each do |category| %>
-		<li><%= link_to category.name, category%></li>
-							 
-			
-			 <%end%>
-		</ul>
-	</article>
+	
 	<% @articles.each do |article|%>
 		<article>
 			
 				<div class="titleArticle">
-					<h1><%= article.user.name %></h1>
-					<h1><%= article.role.nombre%></h1>
+					
+					<h1>Por : <%= article.user.name %> <br>Role :<%= article.role.nombre%></h1>
+					<%= link_to 'Ver mas', article%>
 				</div>
 				<div class="contentArticle">
 					<p>

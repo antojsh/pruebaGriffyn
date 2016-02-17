@@ -127,7 +127,7 @@ header#headerHome{
 		}
 	}
 }
-section#articles, section#category{
+section#articles, section#category, section#user{
 	
 	// display:flex;
 	// justify-content:space-between;
@@ -135,7 +135,7 @@ section#articles, section#category{
 	article{
 
 		width: 70%;
-		height: 500px;
+		height: auto;
 		border:1px solid #dadada;
 		box-shadow: 4px 4px 4px  #aaa;
 		margin-bottom: 2em;
@@ -143,9 +143,9 @@ section#articles, section#category{
 		display: inline-block;
 		overflow: hidden;
 		transition: all .3s;
-		border:1px solid red;
+		border:1px solid darken(#F24C27,10%);
 		.contentArticle{
-			position:absolute;
+			
 			width: 100%;
 			height: auto;
 			left: 0;
@@ -165,13 +165,16 @@ section#articles, section#category{
 			
 		}
 		.titleArticle{
-			position:absolute;
+			
 			width: 100%;
 			height: 50px;
 			left: 0;
 			top:  0;
 			background:#F24C27;
 			padding:10px;
+			display: flex;
+			justify-content: space-between;
+			align-items:center;
 			h1{
 				color: white;
 				letter-spacing: 2px;
@@ -179,24 +182,28 @@ section#articles, section#category{
 				font-size: 1.2rem;
 				
 			}
+			a{
+				color: saturate(#024959,80%);
+			}
 		}
 		&:hover{
 			
 		}
 		
 	}
-	article#categories{
+	
+}
+article#categories{
 		position:absolute;
+		z-index: 10;
 		border:1px solid #dadada;
-		right: 0;
+		right: 1em;
 		width: 30%;
 		padding:5px 2em;
 		ul{
 			list-style:none;
 		}
 	}
-}
-
 section#article{
 	article{
 		width: 100%;
@@ -242,7 +249,7 @@ section#newArticle{
 		}
 		.panel-body{
 			width: 80%;
-			height: 400px;
+			height: 300px;
 			padding:1em;
 			margin-left: 1em;
 		}
@@ -269,6 +276,35 @@ section#register, section#login{
 		margin-bottom: 1em;
 	}
 }
+section#users{
+	article{
+		display: flex;
+		width: 50%;
+		box-shadow: 4px 4px 4px  #aaa;
+		border:1px solid darken(#aaa,10%);
+		margin-bottom: 1em;
+		a{
+			width: 100%;
+			display: flex;
+			text-decoration: none;
+		
+			h3{
+				margin:auto 1em;
+			}
+			
+		}	
+	}
+
+}
+section#user{
+	.headerProfile{
+		display: flex;
+		align-items:center;
+		h1{
+			margin-right: .4em;
+		}
+	}
+}
 div.error{
 	padding:5px;
 	background:darken(red,10%);
@@ -276,4 +312,14 @@ div.error{
 	border-radius:5px;
 	color:white;
 	margin-top:5px;
+}
+
+footer{
+	position:fixed;
+	bottom:0;
+	right:0;
+	padding:2px;
+}
+.alert{
+	color:red;
 }

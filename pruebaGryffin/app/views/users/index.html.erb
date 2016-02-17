@@ -1,0 +1,14 @@
+<%= render "articles/menu"%>
+<section id='users'>
+	<% @users.each do |user|%>
+			<article>
+				<a href="/users/<%= user.id %>">
+					<img src="http://public.slidesharecdn.com/b/images/user-48x48.png" alt="">
+					
+							<h3> <%= user.name %></h3>
+							<h3><%= user.email%> </h3>
+					
+				</a>	
+			</article>
+	<% end %>
+</section>

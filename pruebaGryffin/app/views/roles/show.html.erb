@@ -1,12 +1,9 @@
 <%= render "articles/menu"%>
-<section>
-	<p id="notice"><%= notice %></p>
+	<section>
+		<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @role.nombre %>
-</p>
+	<h1>  <%= @role.nombre %></h1>
 
-<%= link_to 'Edit', edit_role_path(@role) %> |
-<%= link_to 'Back', roles_path %>
+	<%= link_to 'Edit', edit_role_path(@role) %> |
+	<%= link_to 'Back', roles_path %>
 </section>

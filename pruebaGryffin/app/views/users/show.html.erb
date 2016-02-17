@@ -1,0 +1,28 @@
+<%= render "articles/menu"%>
+<section id='user'>
+	<div class="headerProfile" >
+		<h1>Profile of <%= @user.name %> </h1>
+		<% if current_user.id == @user.id %>
+			<a href="<%= edit_user_registration_path %>">Edit User</a>
+		<%end%>
+		
+	</div>
+	
+	<% @articles2.each do |article|%>
+	<article>
+		
+			<div class="titleArticle">
+				
+				<h1>Por : <%= article.user.name %> <br>Role :<%= article.role.nombre%></h1>
+					<%= link_to 'Ver mas', article%>
+			</div>
+			<div class="contentArticle">
+				<p>
+					<%= article.body.html_safe%>
+				</p>
+			</div>
+		
+			
+	</article>
+<% end %>
+</section>

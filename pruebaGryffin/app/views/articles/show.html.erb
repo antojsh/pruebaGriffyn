@@ -3,7 +3,7 @@
 	<article>
 		<h1><%= @article.title%></h1>
 		<%= @article.body.html_safe%>
-		<a href='#'>Escrito por: <%= @article.user.name%></a>
-		<a href='#'>Escrito por: <%= current_user.role_id%></a>
+	Escrito por: <%= @article.user.name%>
+
 	</article>
 </section>

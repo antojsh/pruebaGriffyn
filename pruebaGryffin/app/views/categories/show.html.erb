@@ -3,36 +3,51 @@
 
 
 <section id='category'>
-	<p style="color:<%=@category.color%> ; font-size:2em;">
-	  <strong>Category:</strong>
-	  <%= @category.name %>
-	</p>
-	<% @category.articles.each do |article|%>
+<p style="color:<%=@category.color%> ; font-size:2em;">
+  <strong>Category:</strong>
+  <%= @category.name %>
+</p>
+<% @category.articles.each do |article|%>
+	<% if article.role_id == current_user.role_id || article.role_id==1%>
 		<article>
-			<a href="/articles/<%= article.id%>">
-				<div class="titleArticle">
-					<h1><%= article.title%></h1>
-				</div>
-				<div class="contentArticle">
-					<p>
-						<%= article.description%>
-					</p>
-				</div>
-			</a>
-				<a href=""><small>Por: <%= article.user.email%></small></a>
-			
+				
+					<div class="titleArticle">
+						<h1>Por : <%= article.user.name %></h1>
+						<h1><%= article.role.nombre%> </h1>
+						<%= link_to 'Ver mas', article%>
+					</div>
+					<div class="contentArticle">
+						<p>
+							<%= article.body.html_safe%>
+						</p>
+					</div>
+		</article>
+	<% elsif  article.role_id == current_user.role_id  && article.role_id==2%>
+		<article>
+				
+					<div class="titleArticle">
+						<h1>Por : <%= article.user.name %></h1>
+						<h1><%= article.role.nombre%> </h1>
+						<%= link_to 'Ver mas', article%>
+					</div>
+					<div class="contentArticle">
+						<p>
+							<%= article.body.html_safe%>
+						</p>
+					</div>
 		</article>
 	<%end%>
-	
+<% end %>
+
 </section>
 <section>
-		<%= link_to 'Editar Categoria', edit_category_path(@category) %> |
-		
+	<%= link_to 'Editar Categoria', edit_category_path(@category) %> |
+	
 </section>
 
 <!-- <p>
-  <strong>Color:</strong>
-  <%= @category.color %>
+<strong>Color:</strong>
+<%= @category.color %>
 </p> -->
 
 

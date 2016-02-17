@@ -1,0 +1,14 @@
+<%= render "articles/menu"%>
+<section>
+	<h1>Change Role for <%= current_user.name%></h1><br>
+	<%= form_for(@user) do |f| %>
+		<div class="field">
+          <%= f.label :role_id , "Role"%><br />
+          <%=f.collection_select :role_id, @roles, :id, :nombre%>
+        </div>
+		<br>
+		<div class="row">
+			<%= f.submit "Guardar", class: "buttonSubmit"%>
+		</div>
+	<%end%>
+</section>

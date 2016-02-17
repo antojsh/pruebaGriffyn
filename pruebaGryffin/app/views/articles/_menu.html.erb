@@ -8,15 +8,18 @@
 				<% if user_signed_in? %>
 					<li><a href="/articles">Home</a></li>
 					<li><a href="/articles/new">New</a></li>
-					
-					
-					<li><a href="/roles">Roles</a>
+					<li><a href="/users">Users</a></li>
+					<li><a href="/users/<%= current_user.id %>">Profile</a></li>
+					<li><a href="/categories">Categories</a>
 						<ul>
-							 <% @roles.each do |rol| %>
-								<li><a href="/roles/<%= rol.id %>"><%= rol.nombre %></a></li>
+							 <% @categories.each do |category| %>
+								<li><a href="/categories/<%= category.id %>"><%= category.name %></a></li>
 							
 							 <%end%>
 						</ul>
+					</li>
+					<li><a href="/roles">Roles</a>
+						
 					</li>
 					<li><%= link_to "Exit", destroy_user_session_path,method: :delete%></li>
 				<%else%>
@@ -30,3 +33,23 @@
 		</nav>
 	</div>
 </header>
+
+<% if user_signed_in? %>
+<article id="categories">
+		<a href="/categories"><h1>Categories</h1></a>
+
+		<ul>
+			 <% @categories.each do |category| %>
+		<li><%= link_to category.name, category%></li>
+							 
+			
+			 <%end%>
+		</ul>
+	</article>
+<footer>
+	
+		<h4>User session <%= current_user.name%></h4>
+
+	
+</footer>
+<%end%>

@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :articles
   root to: "articles#index"
-  get 'setrole'=>'roles#setrole'
+  get 'assign'=>'users#assign'
+  resources :users, only: [:show, :index]
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
